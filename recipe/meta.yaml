@@ -1,0 +1,77 @@
+{% set name = "yolox" %}
+{% set version = "0.3.0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: ..
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - python
+    - pip
+    - opencv
+    - pytorch
+    - torchvision
+    - torchaudio
+    - cudatoolkit=11.6
+    - loguru
+    - tqdm
+    - tabulate
+    - lap
+    - scipy
+    - pycocotools
+    - cython_bbox
+
+
+  host:
+    - python
+    - pip
+    - opencv
+    - pytorch
+    - torchvision
+    - torchaudio
+    - cudatoolkit=11.6
+    - loguru
+    - tqdm
+    - tabulate
+    - lap
+    - scipy
+    - pycocotools
+    - cython_bbox
+
+  run:
+    - python
+    - pip
+    - opencv
+    - pytorch
+    - torchvision
+    - torchaudio
+    - cudatoolkit=11.6
+    - loguru
+    - tqdm
+    - tabulate
+    - lap
+    - scipy
+    - pycocotools
+    - cython_bbox
+
+test:
+  requires:
+    - pytest
+  imports:
+    - yolox
+  source_files:
+    - tests
+  commands:
+    - python -m pytest
+
+about:
+  summary: A high-performance anchor-free YOLO
+  license_file: LICENSE
